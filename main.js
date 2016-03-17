@@ -130,7 +130,7 @@ update = function() {
           results2 = [];
           for (j = p = 1, ref4 = col.length; 1 <= ref4 ? p < ref4 : p > ref4; j = 1 <= ref4 ? ++p : --p) {
             if (vm[x].items[i][j].length === 0) {
-              results2.push(vm[x].items[i][j] = [["#fff", "(˘ω˘)"]]);
+              results2.push(vm[x].items[i][j] = [["#fff", ":sobaya:"]]);
             } else {
               results2.push(void 0);
             }
