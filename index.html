@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>じかんわり2016</title>
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/1.0.17/vue.min.js"></script>
+  <script src="./main.js"></script>
+</head>
+<body>
+  <div class="container">
+    <h1>おふとんは最高、異論は認めない</h1>
+    <div id="controller">
+      <button v-on:click="switchToE">JKE</button>
+      <button v-on:click="switchToO">JKO</button>
+      <button v-on:click="switchToEO">JKE+JKO</button>
+    </div>
+
+    <h2>1Q</h2>
+    <table class="table" id="Q1">
+      <tr v-for="(i,item) in items">
+        <td v-for="(j,it) in item">
+          <span v-show="i==0 || j==0">
+            <strong>{{it}}</strong>
+          </span>
+          <span v-else>
+            <ul class="list-group">
+              <li v-for="iii in it" class="list-group-item" style="background-color: {{iii[0]}};">
+                {{iii[1]}}
+              </li>
+            </ul>
+          </span>
+        </td>
+      </tr>
+    </table>
+
+    <h2>2Q</h2>
+    <table class="table" id="Q2">
+      <tr v-for="(i,item) in items">
+        <td v-for="(j,it) in item">
+          <span v-show="i==0 || j==0">
+            <strong>{{it}}</strong>
+          </span>
+          <span v-else>
+            <ul class="list-group">
+              <li v-for="iii in it" class="list-group-item" style="background-color: {{iii[0]}};">
+                {{iii[1]}}
+              </li>
+            </ul>
+          </span>
+        </td>
+      </tr>
+    </table>
+  </div>
+</body>
+</html>
