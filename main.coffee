@@ -309,7 +309,7 @@ update = ->
     for i in [1...row.length]
       for j in [1...col.length]
         if vm[x].items[i][j].length == 0
-          vm[x].items[i][j] = [["#fff","(˘ω˘)"]]
+          vm[x].items[i][j] = [["#fff",":sobaya:"]]
 
 main = ->
   new Vue {el:"#controller", methods:{
