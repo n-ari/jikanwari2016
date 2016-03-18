@@ -9,7 +9,7 @@
   <script src="./main.js"></script>
 </head>
 <body>
-  <div class="container">
+  <div class="container" id="app">
     <h1>おふとんは最高、異論は認めない</h1>
     <h2>利用上の注意</h2>
     <ul>
@@ -24,41 +24,26 @@
       <button v-on:click="switchToEO">JKE+JKO</button>
     </div>
 
-    <h2>1Q</h2>
-    <table class="table" id="Q1">
-      <tr v-for="(i,item) in items">
-        <td v-for="(j,it) in item">
-          <span v-show="i==0 || j==0">
-            <strong>{{it}}</strong>
-          </span>
-          <span v-else>
-            <ul class="list-group">
-              <li v-for="iii in it" class="list-group-item" style="background-color: {{iii[0]}};">
-                {{iii[1]}}
-              </li>
-            </ul>
-          </span>
-        </td>
-      </tr>
-    </table>
+    <div v-for="(q,quarter) in items">
+      <h2>{{q+1}}Q</h2>
+      <table class="table" id="Q{{q+1}}">
+        <tr v-for="(i,item) in quarter">
+          <td v-for="(j,it) in item">
+            <span v-show="i==0 || j==0">
+              <strong>{{it}}</strong>
+            </span>
+            <span v-else>
+              <ul class="list-group">
+                <li v-for="iii in it" class="list-group-item" style="background-color: {{iii[0]}};">
+                  {{iii[1]}}
+                </li>
+              </ul>
+            </span>
+          </td>
+        </tr>
+      </table>
+    </div>
 
-    <h2>2Q</h2>
-    <table class="table" id="Q2">
-      <tr v-for="(i,item) in items">
-        <td v-for="(j,it) in item">
-          <span v-show="i==0 || j==0">
-            <strong>{{it}}</strong>
-          </span>
-          <span v-else>
-            <ul class="list-group">
-              <li v-for="iii in it" class="list-group-item" style="background-color: {{iii[0]}};">
-                {{iii[1]}}
-              </li>
-            </ul>
-          </span>
-        </td>
-      </tr>
-    </table>
   </div>
 </body>
 </html>
