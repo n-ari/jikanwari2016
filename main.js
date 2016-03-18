@@ -44,10 +44,10 @@ add = function(sch, items) {
 
 vm = {};
 
-list = ["情報工学科200E", "情報工学系200", "文系", "第二外国語", "情報工学科300E", "情報工学系300"];
+list = ["情報工学科200E", "情報工学科200O", "情報工学科200EO", "情報工学科300E", "情報工学科300O", "情報工学科300EO", "情報工学系200", "情報工学系300", "文系", "第二外国語"];
 
 update = function() {
-  var col, i, item, items, j, k, l, len, len1, len2, m, n, o, p, q, ref, ref1, ref2, ref3, ref4, ref5, row, sch, x;
+  var col, i, item, items, j, k, l, len, len1, len2, m, n, o, p, q, ref, ref1, ref2, ref3, ref4, ref5, ref6, row, sch, x;
   row = ",1～2,3～4,5～6,7～8,9～10,その他".split(',');
   col = ",月,火,水,木,金,その他".split(',');
   items = [];
@@ -68,16 +68,17 @@ update = function() {
       }
     }
   }
-  for (n = 0, len1 = list.length; n < len1; n++) {
-    item = list[n];
+  ref3 = vm.list;
+  for (n = 0, len1 = ref3.length; n < len1; n++) {
+    item = ref3[n];
     sch = schedule[item];
     add(sch, items);
   }
-  ref3 = [0, 1];
-  for (o = 0, len2 = ref3.length; o < len2; o++) {
-    x = ref3[o];
-    for (i = p = 1, ref4 = row.length; 1 <= ref4 ? p < ref4 : p > ref4; i = 1 <= ref4 ? ++p : --p) {
-      for (j = q = 1, ref5 = col.length; 1 <= ref5 ? q < ref5 : q > ref5; j = 1 <= ref5 ? ++q : --q) {
+  ref4 = [0, 1];
+  for (o = 0, len2 = ref4.length; o < len2; o++) {
+    x = ref4[o];
+    for (i = p = 1, ref5 = row.length; 1 <= ref5 ? p < ref5 : p > ref5; i = 1 <= ref5 ? ++p : --p) {
+      for (j = q = 1, ref6 = col.length; 1 <= ref6 ? q < ref6 : q > ref6; j = 1 <= ref6 ? ++q : --q) {
         if (items[x][i][j].length === 0) {
           items[x][i][j] = [["#fff", ":sobaya:"]];
         }
@@ -91,45 +92,14 @@ main = function() {
   vm = new Vue({
     el: "#app",
     methods: {
-      switchToE: function() {
-        var i, k, ref;
-        for (i = k = 0, ref = list.length; 0 <= ref ? k < ref : k > ref; i = 0 <= ref ? ++k : --k) {
-          if (list[i] === "情報工学科200O" || list[i] === "情報工学科200EO") {
-            list[i] = "情報工学科200E";
-          }
-          if (list[i] === "情報工学科300O" || list[i] === "情報工学科300EO") {
-            list[i] = "情報工学科300E";
-          }
-        }
-        return update();
-      },
-      switchToO: function() {
-        var i, k, ref;
-        for (i = k = 0, ref = list.length; 0 <= ref ? k < ref : k > ref; i = 0 <= ref ? ++k : --k) {
-          if (list[i] === "情報工学科200E" || list[i] === "情報工学科200EO") {
-            list[i] = "情報工学科200O";
-          }
-          if (list[i] === "情報工学科300E" || list[i] === "情報工学科300EO") {
-            list[i] = "情報工学科300O";
-          }
-        }
-        return update();
-      },
-      switchToEO: function() {
-        var i, k, ref;
-        for (i = k = 0, ref = list.length; 0 <= ref ? k < ref : k > ref; i = 0 <= ref ? ++k : --k) {
-          if (list[i] === "情報工学科200E" || list[i] === "情報工学科200O") {
-            list[i] = "情報工学科200EO";
-          }
-          if (list[i] === "情報工学科300E" || list[i] === "情報工学科300O") {
-            list[i] = "情報工学科300EO";
-          }
-        }
+      update: function() {
         return update();
       }
     },
     data: {
-      items: []
+      items: [],
+      list: [],
+      subjectList: list
     }
   });
   return update();

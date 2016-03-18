@@ -26,10 +26,13 @@
       <li>Twitter : <a href="https://twitter.com/_n_ari">@_n_ari</a></li>
       <li>GitHub : <a href="https://github.com/n-ari/jikanwari2016">ここ</a></li>
     </ul>
+    
     <div id="controller">
-      <button v-on:click="switchToE">JKE</button>
-      <button v-on:click="switchToO">JKO</button>
-      <button v-on:click="switchToEO">JKE+JKO</button>
+      <template v-for="subj in subjectList">
+        <input type="checkbox" id="subj-{{subj}}" value="{{subj}}" v-model="list">
+        <label for="subj-{{subj}}">{{subj}}</label><br>
+      </template>
+      <button v-on:click="update">Update</button>
     </div>
 
     <div v-for="(q,quarter) in items">

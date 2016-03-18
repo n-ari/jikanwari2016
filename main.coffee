@@ -34,11 +34,15 @@ vm = {}
 
 list = [
   "情報工学科200E"
+  "情報工学科200O"
+  "情報工学科200EO"
+  "情報工学科300E"
+  "情報工学科300O"
+  "情報工学科300EO"
   "情報工学系200"
+  "情報工学系300"
   "文系"
   "第二外国語"
-  "情報工学科300E"
-  "情報工学系300"
 ]
 
 update = ->
@@ -57,7 +61,7 @@ update = ->
         else
           items[x][i][j] = []
   # 時間割追加
-  for item in list
+  for item in vm.list
     sch = schedule[item]
     add sch, items
   # 時間割追加ここまで
@@ -72,29 +76,12 @@ main = ->
   vm = new Vue
     el : "#app"
     methods :
-      switchToE: ->
-        for i in [0...list.length]
-          if list[i] is "情報工学科200O" or list[i] is "情報工学科200EO"
-            list[i] = "情報工学科200E"
-          if list[i] is "情報工学科300O" or list[i] is "情報工学科300EO"
-            list[i] = "情報工学科300E"
-        do update
-      switchToO: ->
-        for i in [0...list.length]
-          if list[i] is "情報工学科200E" or list[i] is "情報工学科200EO"
-            list[i] = "情報工学科200O"
-          if list[i] is "情報工学科300E" or list[i] is "情報工学科300EO"
-            list[i] = "情報工学科300O"
-        do update
-      switchToEO: ->
-        for i in [0...list.length]
-          if list[i] is "情報工学科200E" or list[i] is "情報工学科200O"
-            list[i] = "情報工学科200EO"
-          if list[i] is "情報工学科300E" or list[i] is "情報工学科300O"
-            list[i] = "情報工学科300EO"
+      update: ->
         do update
     data :
       items : []
+      list : []
+      subjectList : list
   do update
 
 window.onload = main
