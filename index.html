@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <title>じかんわり2016</title>
+  <script src="https://code.jquery.com/jquery-2.2.2.min.js"></script>
   <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/1.0.17/vue.min.js"></script>
@@ -38,13 +39,24 @@
       <li>GitHub : <a href="https://github.com/n-ari/jikanwari2016">ここ</a></li>
     </ul>
     
-    <div id="controller">
-      <template v-for="subj in subjectList">
-        <input type="checkbox" id="subj-{{subj}}" value="{{subj}}" v-model="list">
-        <label for="subj-{{subj}}">{{subj}}</label><br>
-      </template>
-      <button v-on:click="update">Update</button>
+    <div class="row">
+      <div id="special_controller" class="col-sm-2">
+        <p>プリセット</p>
+        <button v-on:click="JKE">JKE</button>
+        <button v-on:click="JKO">JKO</button>
+        <button v-on:click="JKEO">JKEO</button>
+      </div>
+      <div id="controller" class="col-sm-10">
+        <p>詳細設定</p>
+        <label v-for="subj in subjectList" class="checkbox-inline">
+          <input type="checkbox" id="subj-{{subj}}" value="{{subj}}" v-model="list">
+          {{subj}}
+        </label>
+        <br>
+        <button v-on:click="update">Update</button>
+      </div>
     </div>
+    <hr>
 
     <div v-for="(q,quarter) in items">
       <h2>{{q+1}}Q</h2>

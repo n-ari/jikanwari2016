@@ -92,6 +92,18 @@ main = function() {
   vm = new Vue({
     el: "#app",
     methods: {
+      JKE: function() {
+        this.list = ["情報工学科200E", "情報工学科300E", "情報工学系200", "情報工学系300", "文系", "第二外国語"];
+        return update();
+      },
+      JKO: function() {
+        this.list = ["情報工学科200O", "情報工学科300O", "情報工学系200", "情報工学系300", "文系", "第二外国語"];
+        return update();
+      },
+      JKEO: function() {
+        this.list = ["情報工学科200EO", "情報工学科300EO", "情報工学系200", "情報工学系300", "文系", "第二外国語"];
+        return update();
+      },
       update: function() {
         return update();
       }
