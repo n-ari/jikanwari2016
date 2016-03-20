@@ -124,6 +124,14 @@ main = function() {
         this.list = this.list.concat(gradeStandard.second);
         return update();
       },
+      DD: function() {
+        this.list = [];
+        this.list.push("電気電子系200");
+        this.list.push("電気電子系300");
+        this.list.push("電気電子工学科");
+        this.list = this.list.concat(gradeStandard.second);
+        return update();
+      },
       update: function() {
         return update();
       },

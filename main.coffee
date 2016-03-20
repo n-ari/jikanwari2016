@@ -111,6 +111,13 @@ main = ->
         @list.push "情報工学系300"
         @list = @list.concat gradeStandard.second;
         do update
+      DD: ->
+        @list = []
+        @list.push "電気電子系200"
+        @list.push "電気電子系300"
+        @list.push "電気電子工学科"
+        @list = @list.concat gradeStandard.second;
+        do update
       update: ->
         do update
       reset: ->
