@@ -74,20 +74,42 @@ update = ->
           items[x][i][j] = [["#fff",":sobaya:"]]
   vm.items = items
 
+gradeStandard =
+  second : ["文系","英語第五第六","第二外国語"]
+  third : ["文系","英語第五第六","第二外国語"]
+
 main = ->
   vm = new Vue
     el : "#app"
     methods :
       JKE: ->
-        @list = ["情報工学科200E","情報工学科300E","情報工学系200","情報工学系300","文系","英語第五第六","第二外国語"]
+        @list = []
+        @list.push "情報工学科200E"
+        @list.push "情報工学科300E"
+        @list.push "情報工学系200"
+        @list.push "情報工学系300"
+        @list = @list.concat gradeStandard.second;
         do update
       JKO: ->
-        @list = ["情報工学科200O","情報工学科300O","情報工学系200","情報工学系300","文系","英語第五第六","第二外国語"]
+        @list = []
+        @list.push "情報工学科200O"
+        @list.push "情報工学科300O"
+        @list.push "情報工学系200"
+        @list.push "情報工学系300"
+        @list = @list.concat gradeStandard.second;
         do update
       JKEO: ->
-        @list = ["情報工学科200EO","情報工学科300EO","情報工学系200","情報工学系300","文系","英語第五第六","第二外国語"]
+        @list = []
+        @list.push "情報工学科200EO"
+        @list.push "情報工学科300EO"
+        @list.push "情報工学系200"
+        @list.push "情報工学系300"
+        @list = @list.concat gradeStandard.second;
         do update
       update: ->
+        do update
+      reset: ->
+        @list = []
         do update
     data :
       items : []
