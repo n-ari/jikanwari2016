@@ -47,6 +47,7 @@ list = [
   "情報工学科300EO"
   "情報工学系200"
   "情報工学系300"
+  "情報通信系200"
   "電気電子工学科"
   "電気電子系200"
   "電気電子系300"
@@ -93,6 +94,7 @@ main = ->
         @list.push "情報工学科300E"
         @list.push "情報工学系200"
         @list.push "情報工学系300"
+        @list.push "情報通信系200"
         @list = @list.concat gradeStandard.second;
         do update
       JKO: ->
@@ -101,6 +103,7 @@ main = ->
         @list.push "情報工学科300O"
         @list.push "情報工学系200"
         @list.push "情報工学系300"
+        @list.push "情報通信系200"
         @list = @list.concat gradeStandard.second;
         do update
       JKEO: ->
@@ -109,6 +112,7 @@ main = ->
         @list.push "情報工学科300EO"
         @list.push "情報工学系200"
         @list.push "情報工学系300"
+        @list.push "情報通信系200"
         @list = @list.concat gradeStandard.second;
         do update
       DD: ->
