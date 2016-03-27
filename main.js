@@ -103,6 +103,7 @@ main = function() {
         this.list.push("情報工学科300E");
         this.list.push("情報工学系200");
         this.list.push("情報工学系300");
+        this.list.push("情報通信系200");
         this.list = this.list.concat(gradeStandard.second);
         return update();
       },
@@ -112,6 +113,7 @@ main = function() {
         this.list.push("情報工学科300O");
         this.list.push("情報工学系200");
         this.list.push("情報工学系300");
+        this.list.push("情報通信系200");
         this.list = this.list.concat(gradeStandard.second);
         return update();
       },
@@ -121,6 +123,7 @@ main = function() {
         this.list.push("情報工学科300EO");
         this.list.push("情報工学系200");
         this.list.push("情報工学系300");
+        this.list.push("情報通信系200");
         this.list = this.list.concat(gradeStandard.second);
         return update();
       },
