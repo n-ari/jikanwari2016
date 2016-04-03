@@ -10,6 +10,7 @@
   <script>
     var schedule = {};
     var subjects = {};
+    var presets = {};
   </script>
   <!-- 時間割データ読み込み -->
   <!-- 共通 -->
@@ -23,6 +24,8 @@
   <script src="./schedule/5類/電気電子工学科.js"></script>
   <script src="./schedule/5類/電気電子系.js"></script>
   <!-- 時間割データ読み込みここまで -->
+  <!-- プリセット読み込み -->
+  <script src="./preset/情報工学科2年.js"></script>
   <script src="./main.js"></script>
   <style>
   .list-group{
@@ -56,16 +59,15 @@
     <div class="row">
       <div id="special_controller" class="col-sm-2">
         <p>プリセット</p>
-        <button v-on:click="JKE">情工E</button>
-        <button v-on:click="JKO">情工O</button>
-        <button v-on:click="JKEO">情工E+O</button>
-        <button v-on:click="DD">電電</button>
+        <button v-for="(ps,_) in presets" v-on:click="use_preset(ps)">
+          {{ps}}
+        </button>
         <button v-on:click="reset">リセット</button>
       </div>
       <div id="controller" class="col-sm-10">
         <p>詳細設定</p>
-        <label v-for="subj in subjectList" class="checkbox-inline">
-          <input type="checkbox" id="subj-{{subj}}" value="{{subj}}" v-model="list">
+        <label v-for="(subj,_) in all_subj" class="checkbox-inline">
+          <input type="checkbox" id="subj-{{subj}}" value="{{subj}}" v-model="picked_subj">
           {{subj}}
         </label>
         <br>

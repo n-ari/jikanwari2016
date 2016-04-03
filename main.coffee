@@ -1,4 +1,5 @@
 # index.html でロードした js ファイルが schedule を埋めている
+# index.html でロードした js ファイルが subjects を埋めている
 
 rev = {
   "Mon":1
@@ -22,42 +23,20 @@ rev = {
 
 Q = 2
 
-add = (sch,items)->
-  color = sch.color
-  for x in [0...Q]
-    r = sch.data[x]
-    for i in [0...r.length]
-      item = r[i].split ','
-      items[x][rev[item[1]]][rev[item[0]]].push [color,item[2]]
+addsubj = (subj,items)->
+  color = subjects[subj][0]
+  for i in [1...subjects[subj].length]
+    query = subjects[subj][i].split ','
+    qu = query[0][0]^0
+    items[qu-1][rev[query[2]]][rev[query[1]]].push [color,subj]
 
 vm = {}
-
-list = [
-  # 共通
-  "文系"
-  "英語第一第二"
-  "英語第五第六"
-  "第二外国語"
-  # 5類
-  "情報工学科200E"
-  "情報工学科200O"
-  "情報工学科200EO"
-  "情報工学科300E"
-  "情報工学科300O"
-  "情報工学科300EO"
-  "情報工学系200"
-  "情報工学系300"
-  "情報通信系200"
-  "電気電子工学科"
-  "電気電子系200"
-  "電気電子系300"
-]
 
 update = ->
   row = ",1～2,3～4,5～6,7～8,9～10,その他".split ','
   col = ",月,火,水,木,金,その他".split ','
   items = []
-  for x in [0,1]
+  for x in [0...Q]
     items[x] = []
     for i in [0...row.length]
       for j in [0...col.length]
@@ -69,11 +48,10 @@ update = ->
         else
           items[x][i][j] = []
   # 時間割追加
-  for item in vm.list
-    sch = schedule[item]
-    add sch, items
+  for subj in vm.picked_subj
+    addsubj subj,items
   # 時間割追加ここまで
-  for x in [0,1]
+  for x in [0...Q]
     for i in [1...row.length]
       for j in [1...col.length]
         if items[x][i][j].length == 0
@@ -122,15 +100,24 @@ main = ->
         @list.push "電気電子工学科"
         @list = @list.concat gradeStandard.second;
         do update
+      use_preset: (ps)->
+        console.log ps
+        for subj in presets[ps]
+          if @picked_subj.indexOf(subj) is -1
+            @picked_subj.push subj
+        do update
       update: ->
         do update
       reset: ->
-        @list = []
+        @picked_subj = []
         do update
     data :
       items : []
       list : []
-      subjectList : list
+      subjectList : []
+      picked_subj : []
+      all_subj : subjects
+      presets : presets
   do update
 
 window.onload = main

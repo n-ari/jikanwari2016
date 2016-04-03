@@ -4,13 +4,13 @@ subjects["プログラミング第一E"] = ["#cff", "1Q,Thu,56", "2Q,Thu,56"]
 subjects["確率と統計E"] = ["#cff", "1Q,Thu,78", "2Q,Thu,78"]
 subjects["情報実験第一E"] = ["#cff", "1Q,Mon,56","1Q,Mon,78","2Q,Mon,56","2Q,Mon,78"]
 subjects["フーリエ変換とラプラス変換E"] = ["#cff", "1Q,Fri,78", "2Q,Tue,78"]
-subjects["論理回路理論E"] = ["#cff", "2Q,Thu,56", "2Q,Fri,12", "2Q,Fri,34"]
+subjects["論理回路理論E"] = ["#cff", "2Q,Tue,56", "2Q,Fri,12", "2Q,Fri,34"]
 
 subjects["プログラミング第一O"] = ["#cff", "1Q,Mon,56", "2Q,Mon,56"]
 subjects["確率と統計O"] = ["#cff", "1Q,Mon,78", "2Q,Mon,78"]
 subjects["情報実験第一O"] = ["#cff", "1Q,Thu,56","1Q,Thu,78","2Q,Thu,56","2Q,Thu,78"]
 subjects["フーリエ変換とラプラス変換O"] = ["#cff", "1Q,Fri,78", "2Q,Tue,78"]
-subjects["論理回路理論O"] = ["#cff", "2Q,Thu,56", "2Q,Fri,12", "2Q,Fri,34"]
+subjects["論理回路理論O"] = ["#cff", "2Q,Tue,56", "2Q,Fri,12", "2Q,Fri,34"]
 
 # 情報工学科 300
 subjects["離散構造とアルゴリズムE"] = ["#9cc", "1Q,Mon,56", "1Q,Fri,56", "2Q,Fri,56", "2Q,Fri,78"]
