@@ -24,6 +24,7 @@ rev = {
 Q = 2
 
 addsubj = (subj,items)->
+  console.log subj
   color = subjects[subj][0]
   for i in [1...subjects[subj].length]
     query = subjects[subj][i].split ','
@@ -66,42 +67,8 @@ main = ->
   vm = new Vue
     el : "#app"
     methods :
-      JKE: ->
-        @list = []
-        @list.push "情報工学科200E"
-        @list.push "情報工学科300E"
-        @list.push "情報工学系200"
-        @list.push "情報工学系300"
-        @list.push "情報通信系200"
-        @list = @list.concat gradeStandard.second;
-        do update
-      JKO: ->
-        @list = []
-        @list.push "情報工学科200O"
-        @list.push "情報工学科300O"
-        @list.push "情報工学系200"
-        @list.push "情報工学系300"
-        @list.push "情報通信系200"
-        @list = @list.concat gradeStandard.second;
-        do update
-      JKEO: ->
-        @list = []
-        @list.push "情報工学科200EO"
-        @list.push "情報工学科300EO"
-        @list.push "情報工学系200"
-        @list.push "情報工学系300"
-        @list.push "情報通信系200"
-        @list = @list.concat gradeStandard.second;
-        do update
-      DD: ->
-        @list = []
-        @list.push "電気電子系200"
-        @list.push "電気電子系300"
-        @list.push "電気電子工学科"
-        @list = @list.concat gradeStandard.second;
-        do update
       use_preset: (ps)->
-        console.log ps
+        @picked_subj = []
         for subj in presets[ps]
           if @picked_subj.indexOf(subj) is -1
             @picked_subj.push subj

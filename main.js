@@ -25,6 +25,7 @@ Q = 2;
 
 addsubj = function(subj, items) {
   var color, i, k, qu, query, ref, results;
+  console.log(subj);
   color = subjects[subj][0];
   results = [];
   for (i = k = 1, ref = subjects[subj].length; 1 <= ref ? k < ref : k > ref; i = 1 <= ref ? ++k : --k) {
@@ -83,47 +84,9 @@ main = function() {
   vm = new Vue({
     el: "#app",
     methods: {
-      JKE: function() {
-        this.list = [];
-        this.list.push("情報工学科200E");
-        this.list.push("情報工学科300E");
-        this.list.push("情報工学系200");
-        this.list.push("情報工学系300");
-        this.list.push("情報通信系200");
-        this.list = this.list.concat(gradeStandard.second);
-        return update();
-      },
-      JKO: function() {
-        this.list = [];
-        this.list.push("情報工学科200O");
-        this.list.push("情報工学科300O");
-        this.list.push("情報工学系200");
-        this.list.push("情報工学系300");
-        this.list.push("情報通信系200");
-        this.list = this.list.concat(gradeStandard.second);
-        return update();
-      },
-      JKEO: function() {
-        this.list = [];
-        this.list.push("情報工学科200EO");
-        this.list.push("情報工学科300EO");
-        this.list.push("情報工学系200");
-        this.list.push("情報工学系300");
-        this.list.push("情報通信系200");
-        this.list = this.list.concat(gradeStandard.second);
-        return update();
-      },
-      DD: function() {
-        this.list = [];
-        this.list.push("電気電子系200");
-        this.list.push("電気電子系300");
-        this.list.push("電気電子工学科");
-        this.list = this.list.concat(gradeStandard.second);
-        return update();
-      },
       use_preset: function(ps) {
         var k, len, ref, subj;
-        console.log(ps);
+        this.picked_subj = [];
         ref = presets[ps];
         for (k = 0, len = ref.length; k < len; k++) {
           subj = ref[k];

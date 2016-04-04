@@ -1,4 +1,4 @@
-# 0327 提案方式
+subjects["label:文系"] = []
 
 subjects["文系2年(1)"] = ["#f99", "1Q,Tue,56"]
 subjects["文系2年(2)"] = ["#f99", "1Q,Fri,56"]

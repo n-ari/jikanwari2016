@@ -26,6 +26,8 @@
   <!-- 時間割データ読み込みここまで -->
   <!-- プリセット読み込み -->
   <script src="./preset/情報工学科2年.js"></script>
+  <script src="./preset/情報工学科3年.js"></script>
+  <!-- プリセット読み込みここまで -->
   <script src="./main.js"></script>
   <style>
   .list-group{
@@ -53,7 +55,7 @@
       <h2>情報工学科向け情報</h2>
       <p>情報工学科は公式で年次別に分かれた時間割が公開されているためそちらも併せてご利用ください。</p>
       <p>参考 : <a href="http://www.cs.titech.ac.jp/~csu/index-jap.html">情報工学科　：　東京工業大学</a></p>
-      <p>参考 : <a href="http://www.cs.titech.ac.jp/~csu/pdf/2016-jikanwari-20160324.pdf">2016-jikanwari-20160324.pdf</a></p>
+      <p>参考 : <a href="http://www.cs.titech.ac.jp/~csu/pdf/2016-jikanwari-20160401.pdf">2016-jikanwari-20160401.pdf</a></p>
     </header>
     
     <div class="row">
@@ -66,10 +68,17 @@
       </div>
       <div id="controller" class="col-sm-10">
         <p>詳細設定</p>
-        <label v-for="(subj,_) in all_subj" class="checkbox-inline">
-          <input type="checkbox" id="subj-{{subj}}" value="{{subj}}" v-model="picked_subj">
-          {{subj}}
-        </label>
+        <template v-for="(subj,_) in all_subj">
+          <template v-if="subj.slice(0,6)==='label:'">
+            <h4>{{subj.slice(6)}}</h4>
+          </template>
+          <template v-else>
+            <label class="checkbox-inline">
+              <input type="checkbox" id="subj-{{subj}}" value="{{subj}}" v-model="picked_subj">
+              {{subj}}
+            </label>
+          </template>
+        </template>
         <br>
         <button v-on:click="update">Update</button>
       </div>
