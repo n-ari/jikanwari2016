@@ -1,5 +1,4 @@
-# index.html でロードした js ファイルが schedule を埋めている
-# index.html でロードした js ファイルが subjects を埋めている
+# index.html でロードした js ファイルが subjects, presets を埋めている
 
 rev = {
   "Mon":1
@@ -59,10 +58,6 @@ update = ->
           items[x][i][j] = [["#fff",":sobaya:"]]
   vm.items = items
 
-gradeStandard =
-  second : ["文系","英語第五第六","第二外国語"]
-  third : ["文系","英語第五第六","第二外国語"]
-
 main = ->
   vm = new Vue
     el : "#app"
@@ -80,8 +75,6 @@ main = ->
         do update
     data :
       items : []
-      list : []
-      subjectList : []
       picked_subj : []
       all_subj : subjects
       presets : presets
