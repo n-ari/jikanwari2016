@@ -57,17 +57,41 @@
       <p>参考 : <a href="http://www.cs.titech.ac.jp/~csu/index-jap.html">情報工学科　：　東京工業大学</a></p>
       <p>参考 : <a href="http://www.cs.titech.ac.jp/~csu/pdf/2016-jikanwari-20160401.pdf">2016-jikanwari-20160401.pdf</a></p>
     </header>
-    
+
     <div class="row">
-      <div id="special_controller" class="col-sm-2">
-        <p>プリセット</p>
-        <button v-for="(ps,_) in presets" v-on:click="use_preset(ps)">
-          {{ps}}
-        </button>
-        <button v-on:click="reset">リセット</button>
+      <div class="col-sm-10">
+        <div id="special_controller">
+          <p>プリセット</p>
+          <button v-for="(ps,_) in presets" v-on:click="use_preset(ps)">
+            {{ps}}
+          </button>
+          <button v-on:click="reset">リセット</button>
+        </div>
+        <hr>
+        <div v-for="(q,quarter) in items">
+          <h2>{{q+1}}Q</h2>
+          <table class="table" id="Q{{q+1}}">
+            <tr v-for="(i,item) in quarter">
+              <td v-for="(j,it) in item">
+                <span v-show="i==0 || j==0">
+                  <strong>{{it}}</strong>
+                </span>
+                <span v-else>
+                  <ul class="list-group">
+                    <li v-for="iii in it" class="list-group-item" style="background-color: {{iii[0]}};">
+                      {{iii[1]}}
+                    </li>
+                  </ul>
+                </span>
+              </td>
+            </tr>
+          </table>
+        </div>
       </div>
-      <div id="controller" class="col-sm-10">
+
+      <div class="col-sm-2" id="controller">
         <p>詳細設定</p>
+        <button v-on:click="update">Update</button><br>
         <template v-for="(subj,_) in all_subj">
           <template v-if="subj.slice(0,6)==='label:'">
             <h4>{{subj.slice(6)}}</h4>
@@ -80,29 +104,7 @@
           </template>
         </template>
         <br>
-        <button v-on:click="update">Update</button>
       </div>
-    </div>
-    <hr>
-
-    <div v-for="(q,quarter) in items">
-      <h2>{{q+1}}Q</h2>
-      <table class="table" id="Q{{q+1}}">
-        <tr v-for="(i,item) in quarter">
-          <td v-for="(j,it) in item">
-            <span v-show="i==0 || j==0">
-              <strong>{{it}}</strong>
-            </span>
-            <span v-else>
-              <ul class="list-group">
-                <li v-for="iii in it" class="list-group-item" style="background-color: {{iii[0]}};">
-                  {{iii[1]}}
-                </li>
-              </ul>
-            </span>
-          </td>
-        </tr>
-      </table>
     </div>
 
   </div>
