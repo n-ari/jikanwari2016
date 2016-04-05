@@ -26,9 +26,11 @@ addsubj = (subj,items)->
   console.log subj
   color = subjects[subj][0]
   for i in [1...subjects[subj].length]
-    query = subjects[subj][i].split ','
+    room = subjects[subj][i][0]
+    query = subjects[subj][i][1].split ','
+    console.log query
     qu = query[0][0]^0
-    items[qu-1][rev[query[2]]][rev[query[1]]].push [color,subj]
+    items[qu-1][rev[query[2]]][rev[query[1]]].push [color,room,subj]
 
 vm = {}
 
@@ -55,7 +57,7 @@ update = ->
     for i in [1...row.length]
       for j in [1...col.length]
         if items[x][i][j].length == 0
-          items[x][i][j] = [["#fff",":sobaya:"]]
+          items[x][i][j] = [["#fff","-","-"]]
   vm.items = items
 
 main = ->

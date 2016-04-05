@@ -24,14 +24,16 @@ rev = {
 Q = 2;
 
 addsubj = function(subj, items) {
-  var color, i, k, qu, query, ref, results;
+  var color, i, k, qu, query, ref, results, room;
   console.log(subj);
   color = subjects[subj][0];
   results = [];
   for (i = k = 1, ref = subjects[subj].length; 1 <= ref ? k < ref : k > ref; i = 1 <= ref ? ++k : --k) {
-    query = subjects[subj][i].split(',');
+    room = subjects[subj][i][0];
+    query = subjects[subj][i][1].split(',');
+    console.log(query);
     qu = query[0][0] ^ 0;
-    results.push(items[qu - 1][rev[query[2]]][rev[query[1]]].push([color, subj]));
+    results.push(items[qu - 1][rev[query[2]]][rev[query[1]]].push([color, room, subj]));
   }
   return results;
 };
@@ -67,7 +69,7 @@ update = function() {
     for (i = p = 1, ref5 = row.length; 1 <= ref5 ? p < ref5 : p > ref5; i = 1 <= ref5 ? ++p : --p) {
       for (j = q = 1, ref6 = col.length; 1 <= ref6 ? q < ref6 : q > ref6; j = 1 <= ref6 ? ++q : --q) {
         if (items[x][i][j].length === 0) {
-          items[x][i][j] = [["#fff", ":sobaya:"]];
+          items[x][i][j] = [["#fff", "-", "-"]];
         }
       }
     }
